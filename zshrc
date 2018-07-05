@@ -92,9 +92,13 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export IROCHO="/Users/bea/Documents/nube/irocho_repos/irocho.github.io"
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 #raro para ls
 unset LSCOLORS
 export CLICOLOR=1
 export CLICOLOR_FORCE=1
+
+export DOC_VIM="/Users/bea/Documents/_Informática/doc_vim"
+export IROCHO="/Users/bea/Documents/nube/irocho_repos/irocho.github.io"
+
