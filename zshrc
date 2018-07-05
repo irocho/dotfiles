@@ -6,7 +6,17 @@ export ZSH="/Users/bea/.oh-my-zsh"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+#ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+#POWERLEVEL9K_MODE='awesome-fontconfig'
+POWERLEVEL9K_MODE='nerdfont-complete'
+#POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="green"
+POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_SHORTEN_STRATEGY=truncate_folders
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir rbenv vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history ssh time)
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -102,3 +112,4 @@ export CLICOLOR_FORCE=1
 export DOC_VIM="/Users/bea/Documents/_Informática/doc_vim"
 export IROCHO="/Users/bea/Documents/nube/irocho_repos/irocho.github.io"
 
+POWERLEVEL9K_MODE='nerdfont-complete'
