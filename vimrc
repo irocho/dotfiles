@@ -81,6 +81,7 @@ Plugin 'The-NERD-tree'
 "Plugin 'reedes/vim-pencil'
 Plugin 'LanguageTool'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'junegunn/goyo.vim'
 "Asynchronous Lint Engine       
 Plugin 'w0rp/ale'
 "Markdown
