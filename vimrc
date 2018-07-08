@@ -77,10 +77,12 @@ Plugin 'The-NERD-tree'
 
 
 
-"Writting
+"""""""""""""""""""""""""""""""""Writting
 "Plugin 'reedes/vim-pencil'
 Plugin 'LanguageTool'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'junegunn/goyo.vim'    "arranca con :Goyo sair con :Goyo!
+"
 "Asynchronous Lint Engine       
 Plugin 'w0rp/ale'
 "Markdown
@@ -88,15 +90,15 @@ Plugin 'tpope/vim-markdown'
 Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'tpope/vim-liquid' " Jekyll
 Plugin 'tpope/vim-surround'
-"""""""" GIT
+
+""""""""""""""""""""""""""""""""" GIT
 Plugin 'airblade/vim-gitgutter'
 set updatetime=100
 let g:gitgutter_terminal_reports_focus=0
 Plugin 'tpope/vim-fugitive' " plugin on GitHub repo
 " All of your Plugins must be added before the following line
 Plugin 'ryanoasis/vim-devicons'
-call vundle#end()            " required
-filetype plugin indent on    " required
+
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -120,8 +122,6 @@ colorscheme gruvbox "coloríns
 " To save, press ctrl-s.
 "nmap <c-s> :w<CR>
 "imap <c-s> <Esc>:w<CR>a
-
-
 
 "Non ter que premer ESC para cambiar de modo
 inoremap jj <ESC><CR>
