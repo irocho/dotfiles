@@ -1,5 +1,6 @@
+export TERM="xterm-256color"
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/bea/.oh-my-zsh"
 
@@ -78,7 +79,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+ export LANG=es_ES.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -112,4 +113,3 @@ export CLICOLOR_FORCE=1
 export DOC_VIM="/Users/bea/Documents/_Informática/doc_vim"
 export IROCHO="/Users/bea/Documents/nube/irocho_repos/irocho.github.io"
 
-POWERLEVEL9K_MODE='nerdfont-complete'

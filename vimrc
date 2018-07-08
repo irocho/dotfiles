@@ -1,12 +1,13 @@
 " autocmd vimenter * NERDTree
+set background=dark
 set encoding=utf-8     
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible              " be iMproved, required
 filetype off                  " required
-set numberwidth=5
+"set numberwidth=5
 set number
-set relativenumber
+"set relativenumber
 
 syntax on " Enable syntax highlighting.
 syntax enable " Set color scheme that I like.
@@ -60,8 +61,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'morhetz/gruvbox'
 
 "  Ver sistema de ficheiros e acortar
-Plugin 'ctrlpvim/ctrlp.vim'
-
+"Plugin 'ctrlpvim/ctrlp.vim'
+"fzf is a general-purpose command-line fuzzy finder
+Plugin 'junegunn/fzf'
 Plugin 'The-NERD-tree'
 "Plugin 'tmhedberg/SimpylFold'
 "Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
@@ -77,11 +79,18 @@ set noshowmode
 "Writting
 "Plugin 'reedes/vim-pencil'
 Plugin 'LanguageTool'
+Plugin 'sheerun/vim-polyglot'
+"Asynchronous Lint Engine       
+Plugin 'w0rp/ale'
 "Markdown
 Plugin 'tpope/vim-markdown'
 Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'tpope/vim-liquid' " Jekyll
 Plugin 'tpope/vim-surround'
+"""""""" GIT
+Plugin 'airblade/vim-gitgutter'
+set updatetime=100
+let g:gitgutter_terminal_reports_focus=0
 Plugin 'tpope/vim-fugitive' " plugin on GitHub repo
 " All of your Plugins must be added before the following line
 Plugin 'ryanoasis/vim-devicons'
