@@ -7,7 +7,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 "set numberwidth=5
 set number
-"set relativenumber
+set relativenumber
 
 syntax on " Enable syntax highlighting.
 syntax enable " Set color scheme that I like.
@@ -60,6 +60,12 @@ Plugin 'VundleVim/Vundle.vim'
 "Plugin 'tomasr/molokai'
 Plugin 'morhetz/gruvbox'
 
+"Barra de abaixo
+Plugin 'itchyny/lightline.vim'
+set laststatus=2
+"Na barra de abaixo xa conta o modo no que estou 
+set noshowmode
+
 "  Ver sistema de ficheiros e acortar
 "Plugin 'ctrlpvim/ctrlp.vim'
 "fzf is a general-purpose command-line fuzzy finder
@@ -70,11 +76,6 @@ Plugin 'The-NERD-tree'
 "Plugin 'mattn/emmet-vim'
 
 
-"Barra de abaixo
-Plugin 'itchyny/lightline.vim'
-set laststatus=2
-"Na barra de abaixo xa conta o modo no que estou 
-set noshowmode
 
 "Writting
 "Plugin 'reedes/vim-pencil'
