@@ -18,7 +18,7 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_SHORTEN_STRATEGY=truncate_folders
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode root_indicator dir rbenv vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs history ssh time)
-POWERLEVEL9K_VI_INSERT_MODE_STRING="I"
+POWERLEVEL9K_VI_INSERT_MODE_STRING="..."
 POWERLEVEL9K_VI_COMMAND_MODE_STRING="N"
 
 # Set list of themes to load
@@ -116,32 +116,3 @@ export IROCHO="/Users/bea/Documents/nube/irocho_repos/irocho.github.io"
 #
 # Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=1
-function zle-line-init {
-  powerlevel9k_prepare_prompts
-  if (( ${+terminfo[smkx]} )); then
-    printf '%s' ${terminfo[smkx]}
-  fi
-  zle reset-prompt
-  zle -R
-}
-
-function zle-line-finish {
-  powerlevel9k_prepare_prompts
-  if (( ${+terminfo[rmkx]} )); then
-    printf '%s' ${terminfo[rmkx]}
-  fi
-  zle reset-prompt
-  zle -R
-}
-
-function zle-keymap-select {
-  powerlevel9k_prepare_prompts
-  zle reset-prompt
-  zle -R
-}
-
-zle -N zle-line-init
-zle -N ale-line-finish
-zle -N zle-keymap-select
-
-
