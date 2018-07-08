@@ -16,8 +16,10 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_SHORTEN_STRATEGY=truncate_folders
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir rbenv vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history ssh time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode root_indicator dir rbenv vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs history ssh time)
+POWERLEVEL9K_VI_INSERT_MODE_STRING="I"
+POWERLEVEL9K_VI_COMMAND_MODE_STRING="N"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -69,8 +71,8 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs histor
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git  osx vi-mode autojump colored-man colorize extract zsh-syntax-highlighting
-)
+  git  osx vi-mode autojump colored-man-pages colorize extract fast-syntax-highlighting
+  )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -103,7 +105,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #raro para ls
 unset LSCOLORS
@@ -112,4 +113,35 @@ export CLICOLOR_FORCE=1
 
 export DOC_VIM="/Users/bea/Documents/_Informática/doc_vim"
 export IROCHO="/Users/bea/Documents/nube/irocho_repos/irocho.github.io"
+#
+# Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
+export KEYTIMEOUT=1
+function zle-line-init {
+  powerlevel9k_prepare_prompts
+  if (( ${+terminfo[smkx]} )); then
+    printf '%s' ${terminfo[smkx]}
+  fi
+  zle reset-prompt
+  zle -R
+}
+
+function zle-line-finish {
+  powerlevel9k_prepare_prompts
+  if (( ${+terminfo[rmkx]} )); then
+    printf '%s' ${terminfo[rmkx]}
+  fi
+  zle reset-prompt
+  zle -R
+}
+
+function zle-keymap-select {
+  powerlevel9k_prepare_prompts
+  zle reset-prompt
+  zle -R
+}
+
+zle -N zle-line-init
+zle -N ale-line-finish
+zle -N zle-keymap-select
+
 
