@@ -12,6 +12,8 @@ set relativenumber
 syntax on " Enable syntax highlighting.
 syntax enable " Set color scheme that I like.
 
+set hidden " non cómpre gardar para ir a outro buffer
+
 set smartindent " Automatically indent when adding a curly bracket, etc.
 " Tabs should be converted to a group of 4 spaces.  " This is the official Python convention
 " http://www.python.org/dev/peps/pep-0008/
@@ -19,10 +21,13 @@ set shiftwidth=4
 set tabstop=4
 set expandtab
 set smarttab
+set autoindent "p.e.dentro dunha función
+
 set scrolloff=999 " Minimal number of screen lines to keep above and below the cursor.
 set ruler " Show line number, cursor position.
 set showcmd " Display incomplete commands.
 
+set hlsearch "marcar o que busco
 set incsearch " Search as you type.
 set ignorecase " Ignore case when searching.
 
@@ -31,7 +36,7 @@ set noerrorbells
 set visualbell
 set t_vb=
 
-set wildmenu " Show autocomplete menus.
+set wildmenu " liña encima cos comandos para autocompletar
 
 " """""""""""""" PLUGINS"""""""""""""""""""
 " set the runtime path to include Vundle and initialize
@@ -74,8 +79,6 @@ Plugin 'The-NERD-tree'
 "Plugin 'tmhedberg/SimpylFold'
 "Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 "Plugin 'mattn/emmet-vim'
-
-
 
 "Writting
 "Plugin 'reedes/vim-pencil'
