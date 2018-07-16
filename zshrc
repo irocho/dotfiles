@@ -4,10 +4,7 @@ export TERM="xterm-256color"
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/bea/.oh-my-zsh"
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="agnoster"
+ZSH_THEME="robbyrussell"
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 #POWERLEVEL9K_MODE='awesome-fontconfig'
@@ -29,9 +26,9 @@ POWERLEVEL9K_VCS_UNTRACKED_ICON='\u25CF'
 POWERLEVEL9K_VCS_UNSTAGED_ICON='\u00b1'
 POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON='\u2193'
 POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON='\u2191'
-
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
-POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
+#POWERLEVEL9K_VCS_FOREGROUND=''
+#POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
+#POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
@@ -82,9 +79,10 @@ POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git  osx vi-mode autojump colored-man-pages colorize extract fast-syntax-highlighting
+  git  osx vi-mode autojump colored-man-pages extract 
   )
-
+#colorize fast-syntax-highlighting
+#
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -118,12 +116,10 @@ source $ZSH/oh-my-zsh.sh
 
 
 #raro para ls
-unset LSCOLORS
-export CLICOLOR=1
-export CLICOLOR_FORCE=1
-
-export DOC_VIM="/Users/bea/Documents/_Informática/doc_vim"
-export IROCHO="/Users/bea/Documents/nube/irocho_repos/irocho.github.io"
-#
+#unset LSCOLORS
+#export CLICOLOR=1
+#export CLICOLOR_FORCE=1
+export LSCOLORS="gxFxFhChcxexExDxdxGxgx"
 # Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=1
+source ~/acortados.sh
