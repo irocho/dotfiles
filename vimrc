@@ -140,14 +140,6 @@ let g:NERDTreeShowBookmarks=1
 "et g:nerdtree_tabs_focus_on_files=1
 "et g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 "et g:NERDTreeWinSize = 50
-" NERDTress File highlighting
-function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
- exec 'autocmd Filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
- exec 'autocmd Filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-endfunction
-
-call NERDTreeHighlightFile('py', 'red', 'none', 'green', '#151515')
-call NERDTreeHighlightFile('py*', 'blue', 'none', 'yellow', '#151515')
 
 " modifica nerdtree-git-plugin
 let g:NERDTreeIndicatorMapCustom = {
@@ -162,6 +154,17 @@ let g:NERDTreeIndicatorMapCustom = {
     \ 'Ignored'   : '☒',
     \ "Unknown"   : "?"
     \ }
+""let g:netrw_liststyle = 3
+"let g:netrw_browse_split = 4
+"let g:netrw_altv = 1
+"let g:netrw_winsize = 20
+"
+"augroup ProjectDrawer
+"  autocmd!
+ " autocmd VimEnter * :Vexplore
+"augroup END
+
+
 "moving between buffers: normal mode
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
@@ -196,4 +199,6 @@ augroup markdown
     au!
     au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
-
+"Cause linebreaks in wrapped lines of text to break at normal word boundaries
+"rather than cutting words in half. útil en Goyo
+set wrap linebreak nolist 

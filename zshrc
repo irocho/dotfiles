@@ -123,3 +123,5 @@ export LSCOLORS="gxFxFhChcxexExDxdxGxgx"
 # Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=1
 source ~/acortados.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
