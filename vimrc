@@ -12,7 +12,6 @@ set relativenumber
 syntax on " Enable syntax highlighting.
 syntax enable " Set color scheme that I like.
 
-set backspace=indent,eol,start
 
 set hidden " non cómpre gardar para ir a outro buffer
 
@@ -29,9 +28,12 @@ set scrolloff=999 " Minimal number of screen lines to keep above and below the c
 set ruler " Show line number, cursor position.
 set showcmd " Display incomplete commands.
 
+
+"Búsquedas"
 set hlsearch "marcar o que busco
 set incsearch " Search as you type.
 set ignorecase " Ignore case when searching.
+noremap <silent> <Space> :silent noh<Bar>echo<CR> " pressing the spacebar will simply un-highlight the previous search."
 
 "Vim no flashing
 set noerrorbells
@@ -75,7 +77,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 """"""""""""""Writting
 "Plugin 'reedes/vim-pencil'
-Plugin 'LanguageTool'
+""Plugin 'LanguageTool'
 "Plugin 'sheerun/vim-polyglot'
 Plugin 'junegunn/goyo.vim'
 
@@ -84,8 +86,9 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'w0rp/ale'                "Caza erros
 Plugin 'davidhalter/jedi-vim'   "Autocompleta
 Plugin 'ervandew/supertab'
-
+Plugin 'skywind3000/asyncrun.vim' "executa e arranca quickfix"
 """""""" MARKDOWN
+
 Plugin 'tpope/vim-markdown'
 Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'tpope/vim-liquid'       " Jekyll
@@ -201,6 +204,8 @@ inoremap <C-l> <C-w>l
 "" Python
 nnoremap <F9> :echo system('python3 "' . expand('%') . '"')<cr>
 ""nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
+let g:asyncrun_open = 10
+nnoremap <F8> :AsyncRun! time python % <CR>
 " Abro corchete e pecha só e ponme no medio
 inoremap " ""<left>
 inoremap ' ''<left>
@@ -219,9 +224,30 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix
 
-let g:jedi#use_splits_not_buffers = "left"
+" Enable folding (za)
+set foldmethod=indent
+set foldlevel=99
+set foldcolumn=0
+
+
+" Jedi-vim ------------------------------
+" Go to definition in new tab
+nmap ,h :tab split<CR>:call jedi#goto()<CR>
+let g:jedi#goto_command = ",d"
+let g:jedi#goto_assignments_command = ",g"
+let g:jedi#documentation_command = "K" "pydoc documentation"
+let g:jedi#usages_command = ",n"
+""let g:jedi#completions_command = "<C-Space>" "uso supertab"
+let g:jedi#rename_command = ",r"
+" Find ocurrences
+let g:jedi#usages_command = ',o'
+""let g:jedi#use_splits_not_buffers = "left"
 ""let g:jedi#auto_close_doc = 1  " close preview window after completion
-let g:jedi#show_call_signatures = "2"
+""let g:jedi#show_call_signatures = "2"
+
+" ale_______________________"
+let g:ale_linters = {'python': ['pylint']}
+let g:ale_fixers = {'python': ['remove_trailing_lines', 'trim_whitespace','pycodestyle', 'autopep8']}
 
 " Markdown Syntax Support
 augroup markdown
@@ -233,3 +259,4 @@ augroup END
 "Cause linebreaks in wrapped lines of text to break at normal word boundaries
 "rather than cutting words in half. útil en Goyo
 set wrap linebreak nolist 
+set backspace=indent,eol,start
