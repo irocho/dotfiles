@@ -12,6 +12,8 @@ set relativenumber
 syntax on " Enable syntax highlighting.
 syntax enable " Set color scheme that I like.
 
+set backspace=indent,eol,start
+
 set hidden " non cómpre gardar para ir a outro buffer
 
 set smartindent " Automatically indent when adding a curly bracket, etc.
@@ -71,18 +73,22 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 "Plugin 'tpope/vim-commentary'
 
-"Writting
+""""""""""""""Writting
 "Plugin 'reedes/vim-pencil'
 Plugin 'LanguageTool'
 "Plugin 'sheerun/vim-polyglot'
 Plugin 'junegunn/goyo.vim'
-"Asynchronous Lint Engine
-Plugin 'w0rp/ale'
 
-"Markdown
+""""""""""" PYTHON
+"Asynchronous Lint Engine
+Plugin 'w0rp/ale'                "Caza erros
+Plugin 'davidhalter/jedi-vim'   "Autocompleta
+Plugin 'ervandew/supertab'
+
+"""""""" MARKDOWN
 Plugin 'tpope/vim-markdown'
 Plugin 'jtratner/vim-flavored-markdown'
-Plugin 'tpope/vim-liquid' " Jekyll
+Plugin 'tpope/vim-liquid'       " Jekyll
 Plugin 'tpope/vim-surround'
 
 """""""" GIT
@@ -165,6 +171,12 @@ let g:NERDTreeIndicatorMapCustom = {
 "augroup END
 
 
+"Non ter que premer ESC para cambiar de modo
+inoremap ññ <ESC>
+
+"navegar entre ficheiros:pasar dalgunhas extensións
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
 "moving between buffers: normal mode
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
@@ -186,19 +198,38 @@ inoremap <C-l> <C-w>l
 "imap <c-s> <Esc>:w<CR>a
 
 
+"" Python
+nnoremap <F9> :echo system('python3 "' . expand('%') . '"')<cr>
+""nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
+" Abro corchete e pecha só e ponme no medio
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
 
-"Non ter que premer ESC para cambiar de modo
-inoremap jj <ESC><CR>
+au BufNewFile,BufRead *.py
+    \ set tabstop=4  |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
 
-"navegar entre ficheiros:pasar dalgunhas extensións
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-
+let g:jedi#use_splits_not_buffers = "left"
+""let g:jedi#auto_close_doc = 1  " close preview window after completion
+let g:jedi#show_call_signatures = "2"
 
 " Markdown Syntax Support
 augroup markdown
     au!
     au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
+
+"""" WRITING """"
 "Cause linebreaks in wrapped lines of text to break at normal word boundaries
 "rather than cutting words in half. útil en Goyo
 set wrap linebreak nolist 
