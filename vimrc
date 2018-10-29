@@ -67,9 +67,10 @@ set noshowmode
 
 "  Ver sistema de ficheiros e acortar
 "fzf is a general-purpose command-line fuzzy finder
-Plugin 'junegunn/fzf'
-Plugin 'The-NERD-tree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim' 
+""Plugin 'The-NERD-tree'
+""Plugin 'Xuyuanp/nerdtree-git-plugin'
 "Plugin 'tmhedberg/SimpylFold'
 "Plugin 'mattn/emmet-vim'
 
@@ -87,8 +88,8 @@ Plugin 'w0rp/ale'                "Caza erros
 Plugin 'davidhalter/jedi-vim'   "Autocompleta
 Plugin 'ervandew/supertab'
 Plugin 'skywind3000/asyncrun.vim' "executa e arranca quickfix"
-"""""""" MARKDOWN
 
+"""""""" MARKDOWN
 Plugin 'tpope/vim-markdown'
 Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'tpope/vim-liquid'       " Jekyll
@@ -140,40 +141,27 @@ let g:lightline = {
       \ 'separator': { 'left': '⮀', 'right': '⮂' },
       \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
       \ }
-
-"" NERDTree configuration
-"et g:NERDTreeChDirMode=2
-let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
-"et g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
-let g:NERDTreeShowBookmarks=1
-"et g:nerdtree_tabs_focus_on_files=1
+"
+"" Alternativa a Nerdtree: netwr""
+let g:netrw_banner = 0
 "et g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 "et g:NERDTreeWinSize = 50
 
 " modifica nerdtree-git-plugin
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
-""let g:netrw_liststyle = 3
-"let g:netrw_browse_split = 4
-"let g:netrw_altv = 1
-"let g:netrw_winsize = 20
-"
-"augroup ProjectDrawer
-"  autocmd!
- " autocmd VimEnter * :Vexplore
-"augroup END
-
-
+""    let g:NERDTreeIndicatorMapCustom = {
+""        \ "Modified"  : "✹",
+""        \ "Staged"    : "✚",
+""        \ "Untracked" : "✭",
+""        \ "Renamed"   : "➜",
+""        \ "Unmerged"  : "═",
+""        \ "Deleted"   : "✖",
+""        \ "Dirty"     : "✗",
+""        \ "Clean"     : "✔︎",
+""        \ 'Ignored'   : '☒',
+""        \ "Unknown"   : "?"
+""        \ }
+""
+""
 "Non ter que premer ESC para cambiar de modo
 inoremap ññ <ESC>
 
