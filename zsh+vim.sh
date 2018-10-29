@@ -18,7 +18,7 @@ echo "==================================="
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cp vimrc /home/$USER/.vimrc
 vim +PlugInstall +qall
-vim -c 'PluginInstall' -c 'qa!'
+vim -c 'PluginInstall' -c'source %' -c 'qa!'
 echo "==========================================="
-echo "vim se tal está listo cos seus plugins"
+echo "vim listo cos seus plugins"
 echo "==========================================="
