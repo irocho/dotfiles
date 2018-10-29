@@ -4,6 +4,8 @@ Aprendendo a manexar as posibilidades do uso do terminal.
 * zsh
 * vim
 
+Creado script bash para reproducir en debian o que teño no mac
+
 Pendentes:
 
 * fzf
