@@ -1,8 +1,6 @@
-" autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
 set background=dark
 set encoding=utf-8     
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
 set nocompatible              " be iMproved, required
 filetype off                  " required
 "set numberwidth=5
@@ -16,8 +14,7 @@ syntax enable " Set color scheme that I like.
 set hidden " non cómpre gardar para ir a outro buffer
 
 set smartindent " Automatically indent when adding a curly bracket, etc.
-" Tabs should be converted to a group of 4 spaces.  " This is the official Python convention
-" http://www.python.org/dev/peps/pep-0008/
+
 set shiftwidth=4
 set tabstop=4
 set expandtab
