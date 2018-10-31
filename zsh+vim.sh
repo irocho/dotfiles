@@ -3,6 +3,7 @@ apt-get install zsh -y
 apt-get install vim -y
 apt-get install git -y
 apt-get install curl -y
+apt-get install wget -y
 echo "==================================="
 echo "Instalados paquetes básicos"
 echo "==================================="
@@ -10,6 +11,7 @@ echo "==================================="
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 mkdir -p ~/.local/share/fonts
 cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+
 cp zshrc /home/$USER/.zshrc
 echo "==================================="
 echo "zsh coas súas fontes debería ir"
