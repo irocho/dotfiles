@@ -2,7 +2,8 @@ export TERM="xterm-256color"
 # If you come from bash you might have to change your $PATH.
  export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
-export ZSH="~/.oh-my-zsh"
+#export ZSH="~/.oh-my-zsh"
+source ~/exportados.sh
 
 ZSH_THEME="robbyrussell"
 ZSH_THEME="powerlevel9k/powerlevel9k"
@@ -85,8 +86,6 @@ plugins=(
 #
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -122,6 +121,5 @@ source $ZSH/oh-my-zsh.sh
 export LSCOLORS="gxFxFhChcxexExDxdxGxgx"
 # Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=1
-#source ~/acortados.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
