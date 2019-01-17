@@ -84,7 +84,7 @@ plugins=(
   )
 #colorize fast-syntax-highlighting
 #
-source ~.oh-my-zsh/oh-my-zsh.sh
+source ~/.oh-my-zsh/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
