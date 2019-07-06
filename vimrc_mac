@@ -1,15 +1,14 @@
 set encoding=utf-8     
-set nocompatible              " be iMproved, required
+"set nocompatible              " be iMproved, required
 filetype off                  " required
 set number
 set relativenumber
-syntax on " Enable syntax highlighting.
-syntax enable " Set color scheme that I like.
-
+syntax on
+syntax enable
 
 set hidden " non cómpre gardar para ir a outro buffer
 
-set smartindent " Automatically indent when adding a curly bracket, etc.
+"set smartindent " Automatically indent when adding a curly bracket, etc.
 
 set shiftwidth=4
 set tabstop=4
@@ -22,11 +21,12 @@ set ruler " Show line number, cursor position.
 set showcmd " Display incomplete commands.
 
 
+"Búsquedas
 set hlsearch "marcar o que busco
 set incsearch " Search as you type.
 set ignorecase " Ignore case when searching.
-noremap <silent> <Space> :silent noh<Bar>echo<CR>
-"pressing the spacebar will simply un-highlight the previous search.
+" pressing the spacebar will simply un-highlight the previous search
+noremap <silent> <Space> :silent noh <Bar> echo <CR>
 
 "Vim no flashing
 set noerrorbells
@@ -35,24 +35,16 @@ set t_vb=
 
 set wildmenu " liña encima cos comandos para autocompletar
 
-"  PLUGINS"""""""""""""""""""
-" set the runtime path to include Vundle and initialize
+" PLUGINS
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
-
-
-" Coloríns
-Plugin 'flazz/vim-colorschemes'
-""Plugin 'sjl/badwolf'
-""Plugin 'tomasr/molokai'
-""Plugin 'morhetz/gruvbox'
-colorscheme predawn
-
+"Plugin 'ayu-theme/ayu-vim' 
+"Plugin 'sjl/badwolf'
+"Plugin 'tomasr/molokai'
+"Plugin 'morhetz/gruvbox'
+"Plugin 'lithammer/vim-eighties'
 "Barra de abaixo
 Plugin 'itchyny/lightline.vim'
 set laststatus=2
@@ -63,8 +55,8 @@ set noshowmode
 "fzf is a general-purpose command-line fuzzy finder
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim' 
-""Plugin 'The-NERD-tree'
-""Plugin 'Xuyuanp/nerdtree-git-plugin'
+"Plugin 'The-NERD-tree'
+"Plugin 'Xuyuanp/nerdtree-git-plugin'
 "Plugin 'tmhedberg/SimpylFold'
 "Plugin 'mattn/emmet-vim'
 
@@ -75,6 +67,8 @@ Plugin 'junegunn/fzf.vim'
 ""Plugin 'LanguageTool'
 "Plugin 'sheerun/vim-polyglot'
 Plugin 'junegunn/goyo.vim'
+"C
+Plugin 'xavierd/clang_complete'
 
 """"""""""" PYTHON
 "Asynchronous Lint Engine
@@ -111,13 +105,19 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-"  PLUGINS"""""""""""""""""""
+""""" FIN DE  PLUGINS"""""""""""""""""""
 
+"set termguicolors
+"colorscheme ayu
+"let ayucolor='mirage'
+colorscheme jellybeans
+let g:jellybeans_overrides = {
+\    'Todo': {'guifg': '303030', 'guibg': 'f0f000',
+\              'ctermfg': 'Black', 'ctermbg': 'Yellow',
+\              'attr': 'bold' },
+\    'Comment': { 'guifg': 'cccccc' }
+\}
 
-" Enable folding (za)
-set foldmethod=indent
-set foldlevel=99
-set foldcolumn=0
 
 let g:lightline = {
       \ 'colorscheme': 'wombat',
@@ -141,38 +141,20 @@ let g:lightline = {
 
 
 
-"""""""""""""""" Alternativa a Nerdtree: netwr""
-""let g:netrw_banner = 0
-""let g:netrw_liststyle = 3
-""let g:netrw_browse_split = 4
-""let g:netrw_altv = 1
-""""let g:netrw_winsize = 15
-""""augroup ProjectDrawer
-"" autocmd!
-"" autocmd VimEnter * :Vexplore
+"""""""""""""""" Alternativa a Nerdtree: netwr
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+""augroup ProjectDrawer
+ "" autocmd!
+ "" autocmd VimEnter * :Vexplore
 ""augroup END
-""""
 
 
-
-"let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
-"let g:NERDTreeWinSize = 50
-
-" modifica nerdtree-git-plugin
-"    let g:NERDTreeIndicatorMapCustom = {
-        \'Modified"  : "✹",
-        \ "Staged"    : "✚",
-        \ "Untracked" : "✭",
-        \ "Renamed"   : "➜",
-        \ "Unmerged"  : "═",
-        \ "Deleted"   : "✖",
-        \ "Dirty"     : "✗",
-        \ "Clean"     : "✔︎",
-        \ 'Ignored'   : '☒',
-        \ "Unknown"   : "?"
-        \ }
-"
-"
+"et g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
+"et g:NERDTreeWinSize = 50
 
 "Non ter que premer ESC para cambiar de modo
 inoremap ññ <ESC>
@@ -181,17 +163,17 @@ inoremap ññ <ESC>
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
 "moving between buffers: normal mode
-""noremap <C-h> <C-w>h
-""noremap <C-j> <C-w>j
-""noremap <C-k> <C-w>k
-""noremap <C-l> <C-w>l
-""""
-"""moving between buffers: insert modh:::e
-""inoremap <C-h> <C-w>h
-""inoremap <C-j> <C-w>j
-""inoremap <C-k> <C-w>k
-""inoremap <C-l> <C-w><C-l>
-""
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+"moving between buffers: insert modh:::e
+inoremap <C-h> <C-w>h
+inoremap <C-j> <C-w>j
+inoremap <C-k> <C-w>k
+inoremap <C-l> <C-w>l
+
 " To insert timestamp, press F3.
 "nmap <F3> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
 "imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
@@ -224,23 +206,15 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix
 
+" Enable folding (za)
+set foldmethod=indent
+set foldlevel=99
+set foldcolumn=0
+
 
 " Jedi-vim ------------------------------
-" Go to definition in new tab
-""nmap ,h :tab split<CR>:call jedi#goto()<CR>
-""let g:jedi#goto_command = ',d'
-""let g:jedi#goto_assignments_command = ',g'
-""let g:jedi#documentation_command = 'K' "pydoc documentation
-""let g:jedi#usages_command = ',n'
-""""let g:jedi#completions_command = '<C-Space>' "uso supertab
-""let g:jedi#rename_command = ",r'
-""" Find ocurrences
-""let g:jedi#usages_command = ',o'
-""""let g:jedi#use_splits_not_buffers = 'left'
-""""let g:jedi#auto_close_doc = 1  " close preview window after completion
-""""let g:jedi#show_call_signatures = '2'
 
-" ale_______________________"
+" ale_______________________
 let g:ale_linters = {'python': ['pylint']}
 let g:ale_fixers = {'python': ['remove_trailing_lines', 'trim_whitespace','pycodestyle', 'autopep8']}
 
@@ -250,7 +224,7 @@ augroup markdown
     au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
 
-"""" WRITING """"
+" WRITING 
 "Cause linebreaks in wrapped lines of text to break at normal word boundaries
 "rather than cutting words in half. útil en Goyo
 set wrap linebreak nolist 

@@ -123,3 +123,4 @@ export LSCOLORS="gxFxFhChcxexExDxdxGxgx"
 export KEYTIMEOUT=1
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(rbenv init -)"
