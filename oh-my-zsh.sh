@@ -113,7 +113,7 @@ else
     elif [ -f "$ZSH_CUSTOM/themes/$ZSH_THEME.zsh-theme" ]; then
       source "$ZSH_CUSTOM/themes/$ZSH_THEME.zsh-theme"
     else
-      source "$ZSH/themes/$ZSH_THEME.zsh-theme"
+      source "$ZSH/custom/themes/$ZSH_THEME.zsh-theme"
     fi
   fi
 fi
