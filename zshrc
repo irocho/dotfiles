@@ -3,21 +3,27 @@ export TERM="xterm-256color"
  export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
-#source ~/exportados.sh
+eval "$(rbenv init -)"
+source ~/exportados.sh
+
 
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-#POWERLEVEL9K_MODE='awesome-fontconfig'
-POWERLEVEL9K_MODE='nerdfont-complete'
-#POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="green"
-POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
+POWERLEVEL9K_MODE='awesome-fontconfig'
+#POWERLEVEL9K_MODE='nerdfont-complete'
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='241'
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND='208'
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_ICON='\uf115'
+POWERLEVEL9K_DIR_HOME_FOREGROUND='white'
+POWERLEVEL9K_DIR_HOME_BACKGROUND='208'
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-POWERLEVEL9K_SHORTEN_STRATEGY=truncate_folders
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode root_indicator dir rbenv vcs)
+#POWERLEVEL9K_SHORTEN_STRATEGY=truncate_folders
+POWERLEVEL9K_SHORTEN_STRATEGY=truncate_beginning
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode root_indicator dir rbenv  vcs )
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs virtualenv history ssh time)
 POWERLEVEL9K_VI_INSERT_MODE_STRING="."
-POWERLEVEL9K_VI_COMMAND_MODE_STRING="N"
+POWERLEVEL9K_VI_COMMAND_MODE_STRING="NORMAL"
 POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND='245'
 POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='236'
 POWERLEVEL9K_VCS_GIT_GITHUB_ICON=''
@@ -27,6 +33,8 @@ POWERLEVEL9K_VCS_UNTRACKED_ICON='\u25CF'
 POWERLEVEL9K_VCS_UNSTAGED_ICON='\u00b1'
 POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON='\u2193'
 POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON='\u2191'
+POWERLEVEL9K_VCS_COMMIT_ICON=''
+
 #POWERLEVEL9K_VCS_FOREGROUND=''
 #POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
 #POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
@@ -70,7 +78,7 @@ POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON='\u2191'
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+ HIST_STAMPS="dd/mm/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -80,7 +88,7 @@ POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON='\u2191'
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git  osx vi-mode autojump colored-man-pages extract 
+  git  osx vi-mode autojump colored-man-pages extract z  
   )
 #colorize fast-syntax-highlighting
 #
@@ -124,3 +132,25 @@ export KEYTIMEOUT=1
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(rbenv init -)"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+alias python=/usr/local/bin/python3.7
+alias pip=/usr/local/bin/pip3
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export GEM_HOME=/Users/bea/gems
+export PATH=/Users/bea/gems/bin:/usr/local/opt/ruby/bin:/Users/bea/.rbenv/shims:/Users/bea/.autojump/bin:/Users/bea/.rbenv/shims:/Users/bea/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/fzf/bin
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+
+
+
+
+# powerlevel escaralla a tecla DEL
+bindkey '^[[3~' delete-char
+
+export PATH="/usr/local/sbin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="/usr/local/sbin:$PATH"

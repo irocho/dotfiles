@@ -51,7 +51,6 @@ Plugin 'flazz/vim-colorschemes'
 ""Plugin 'sjl/badwolf'
 ""Plugin 'tomasr/molokai'
 ""Plugin 'morhetz/gruvbox'
-colorscheme predawn
 
 "Barra de abaixo
 Plugin 'itchyny/lightline.vim'
@@ -88,6 +87,7 @@ Plugin 'tpope/vim-markdown'
 Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'tpope/vim-liquid'       " Jekyll
 Plugin 'tpope/vim-surround'
+Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
 
 """""""" GIT
 Plugin 'airblade/vim-gitgutter'
@@ -114,8 +114,25 @@ filetype plugin indent on    " required
 "  PLUGINS"""""""""""""""""""
 
 
+colorscheme jellybeans
+
+let g:jellybeans_overrides = {
+\    'Todo': { 'guifg': '303030', 'guibg': 'f0f000',
+\              'ctermfg': 'Black', 'ctermbg': 'Yellow',
+\              'attr': 'bold' },
+\    'Comment': { 'guifg': 'cccccc' },
+\}
+
+let g:jellybeans_overrides = {
+\    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
+\}
+if has('termguicolors') && &termguicolors
+    let g:jellybeans_overrides['background']['guibg'] = 'none'
+endif
+
 " Enable folding (za)
-set foldmethod=indent
+"set foldmethod=indent
+set foldmethod=syntax
 set foldlevel=99
 set foldcolumn=0
 
@@ -136,9 +153,14 @@ let g:lightline = {
       \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
       \ },
       \ 'separator': { 'left': '⮀', 'right': '⮂' },
-      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \ 'subseparator': { 'left': '⮁', 'right': '⮃' },
+      \ 'component_function': {
+      \   'filename': 'LightLineFilename'
+      \ },
       \ }
-
+function! LightLineFilename()
+  return expand('%')
+endfunction
 
 
 """""""""""""""" Alternativa a Nerdtree: netwr""
