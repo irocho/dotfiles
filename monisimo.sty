@@ -1,0 +1,339 @@
+% monisimo.sty
+% estilazo para os temas da opo
+\ProvidesPackage{monisimo}
+%---------------------------------------------------------------------
+%   pdf para imprimir o contido
+%---------------------------------------------------------------------
+%\documentclass[twoside,a4paper]{article} 		% non deixa amsart   twocolumn,
+\usepackage[spanish,galician]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} 			%carallada para que mint non se líe cos dólares en php
+
+%---------------------------------------------------------------------------------------------
+ %  Paquetería común 
+  %---------------------------------------------------------------------------------------------
+\usepackage{graphicx}
+\usepackage{epsfig} 	% for figures
+\usepackage{xcolor} 	% for color
+\usepackage{amssymb,amsmath}
+\usepackage{wrapfig}
+\usepackage{setspace}
+%\usepackage{fancybox}
+\usepackage{eurosym} % poñer símbolo do euro con \euro
+ \usepackage{titlesec}
+
+
+
+%---------------------------------------------------------------------
+%: os meus coloríns  
+%---------------------------------------------------------------------
+ \definecolor{laranxa}{HTML}{CC5500}
+\definecolor{marroncito}{rgb}{0.39, 0.33, 0.32}
+\definecolor{turquesa}{rgb}{0.0, 0.5, 0.5}
+
+
+\newcommand{\colorin}[1]{\textbf{\textcolor[HTML]{CC5500}{#1}}}
+
+%----------------------------------------------------------------------------------------------------------------
+%:   Interespaciado
+%---------------------------------------------------------------------------------------------------------------- 
+\renewcommand{\baselinestretch}{1}
+\linespread{1.5}
+
+%---------------------------------------------------------------------
+%:  Marxes
+%---------------------------------------------------------------------
+\usepackage[a4paper,twoside, foot=4em]{geometry}
+\geometry{top=2cm,
+	left=2cm,
+	bindingoffset=1cm,
+	%right=2cm,
+	bottom=2.5cm
+}
+
+
+%---------------------------------------------------------------------
+%: Título chulo con logo
+%---------------------------------------------------------------------
+\title{ \raggedright
+	\vspace{-1.5cm}
+	\includegraphics[width=\linewidth,width=4cm]{debuxos/i-rocho.png} 
+	 \\
+	\centering 
+    \titulazo
+    }
+    
+
+%---------------------------------------------------------------------------------------------------------------- 
+% Cabeceira e pe de páxina
+%---------------------------------------------------------------------------------------------------------------- 
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+
+\fancypagestyle{portada}
+{%
+	\fancyhf{}
+	\renewcommand{\headrulewidth}{0pt}
+	\fancyfoot[CE,CO]{\scshape \small Número total de páxinas deste documento: \pageref{LastPage}}
+}
+\AtBeginDocument {\addtocontents{toc} {\protect \thispagestyle{portada}}}
+
+\fancyhf{}
+\pagestyle{fancy} 
+\fancyhead[RE,LO]{ \includegraphics[width=\linewidth,width=1.5cm]{debuxos/i-rocho.png} }
+\fancyhead[LE,RO]{\scshape \scriptsize \titulito}
+\renewcommand{\headrulewidth}{0.1pt}
+\fancyfoot[CE,CO]{\scshape \small Páxina \thepage ~de~ \pageref{LastPage}}
+%\cfoot{\scshape \small Páxina \thepage ~de~ \pageref{LastPage}}
+
+
+%---------------------------------------------------------------------
+%: TOC
+%---------------------------------------------------------------------
+\setcounter{secnumdepth}{5} % how many sectioning levels to assign numbers to
+\setcounter{tocdepth}{5}    % how many sectioning levels to show in ToC
+
+ \date{}
+%\author{https://irocho.wordpress.com}
+
+%----------------------------------------------------------------------------------------------------------------
+%:   Columnas
+%---------------------------------------------------------------------------------------------------------------- 
+%Simple ou dobre columna
+ \usepackage{multicol}
+\usepackage{multirow}
+
+%---------------------------------------------------------------------
+%:  esquemitas simples
+%---------------------------------------------------------------------
+ \usepackage{smartdiagram}
+
+%---------------------------------------------------------------------
+%:  listas con interlineado chiquitín
+%---------------------------------------------------------------------
+%\usepackage{enumitem}
+%\setlist{nosep} % or%  \setlist{noitemsep} to leave space around whole list%
+
+%https://stackoverflow.com/questions/1061112/eliminate-space-before-beginitemize
+\renewcommand{\@listI}{%
+\leftmargin=25pt
+\rightmargin=0pt
+\labelsep=5pt% os puntos 
+\labelwidth=20pt
+\itemindent=0pt
+\listparindent=0pt
+\topsep=5pt plus 2pt minus 4pt%0pt plus 2pt minus 4pt
+\partopsep=0pt plus 1pt minus 1pt
+\parsep=0pt plus 1pt %entre items
+\itemsep=\parsep
+}
+%---------------------------------------------------------------------
+%: todo's nas marxes
+% https://latex.org/forum/viewtopic.php?t=23478
+%---------------------------------------------------------------------
+%\usepackage{todonotes}
+\usepackage[
+	linecolor=none,
+	textsize=footnotesize,
+	textwidth=1.8cm,
+	bordercolor=gray!20,backgroundcolor=yellow!20
+]{todonotes}
+\setlength{\marginparwidth}{1.8cm}
+
+%---------------------------------------------------------------------
+%: coloríns nas citas que van de superíndice 
+%---------------------------------------------------------------------
+\usepackage[superscript]{cite}
+\renewcommand{\citeleft}{\textcolor{marroncito}{[}}
+\renewcommand{\citeright}{\textcolor{marroncito}{]}}
+\renewcommand\@citess[1]{\textsuperscript{\citeleft#1\citeright}}
+
+%---------------------------------------------------------------------
+%: Ligazóns molonas a cores  %https://en.wikibooks.org/wiki/LaTeX/Colors
+%black, blue, brown, cyan, darkgray, gray, green, lightgray, lime, magenta, olive, orange, pink, purple, red, teal, violet, white, yellow
+%---------------------------------------------------------------------------------------------------------------- 
+\usepackage{hyperref}	
+\hypersetup{
+    colorlinks=true,
+    linkcolor=turquesa,  %ligazóns dende o índice
+    filecolor=orange,      
+    urlcolor=blue,
+    citecolor=marroncito, 		%https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX
+    pdftitle={Anotacións},
+    bookmarks=true, 
+    pdfpagemode=FullScreen
+}
+\urlstyle{same}
+
+  %---------------------------------------------------------------------------------------------
+ %:  Circuitería
+  %---------------------------------------------------------------------------------------------
+\usepackage[american]{circuitikz}
+%\usepackage{tikz}
+%\usetikzlibrary{arrows,shapes.gates.logic.US,shapes.gates.logic.IEC,calc}
+
+
+  %---------------------------------------------------------------------------------------------
+%:  Código
+  %---------------------------------------------------------------------------------------------
+%%%% 
+\usepackage{minted}
+\usepackage{newfloat}
+\usepackage{upquote} % Turns curly quotes in verbatim text into straight quotes. People who have to copy/paste code from the PDF output will love you for this. Or perhaps more accurately:  They will not hate you/hate you less.
+ 
+%:  Código con minted  
+ % https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted
+  %---------------------------------------------------------------------
+\usemintedstyle{manni}   %murphy   tango  manni  zenbrun autumn  pastie  xcode
+\definecolor{fondo}{rgb}{0.97,0.97,0.97}
+
+% Create a new environment for breaking code listings across pages.
+\newenvironment{partirlistado}{\captionsetup{type=listing}}{}
+    % \begin{partirlistado}
+    % \begin{minted}{tex} ....
+    %.....
+    % \end{partirlistado}
+\setminted{
+        bgcolor=fondo,
+        baselinestretch=1.2,
+        %fontsize=\footnotesize,
+        %xleftmargin=80pt,
+        frame=lines, %raias arriba e abaixo
+        %frame=leftline,
+        fontfamily=tt,
+        linenos=true,
+        numberblanklines=true,
+        numbersep=5pt,
+        gobble=0,
+        framerule=0.2pt,
+        framesep=2mm,
+        tabsize=4,
+        obeytabs=false,
+        mathescape=false
+        samepage=true, %with this setting you can force the list to appear on the same page
+        showspaces=false,
+        showtabs =false,
+        texcl=false,
+}
+% para usar este especial de php cómpre poñer \begin{phpcode} ou sexa engadir --code... e non sei a razón
+\newminted{php}{
+	linenos=true,
+	style=default,%rainbow_dash,%igor,%perldoc,%paraiso-light, %tango,
+	startinline=true, 				%propios de PHP
+	funcnamehighlighting=true		%propios de PHP
+}
+\newmintedfile[phparquivo]{php}{  %cando importo ficheiro tecleo \phparquivo{./rota/index.php}
+	linenos=true,
+	style=default,%rainbow_dash,%igor,%perldoc,%paraiso-light, %tango,
+	%startinline=true, 				%propios de PHP
+	%samepage=false, 			%with this setting you can force the list to appear on the same page
+	funcnamehighlighting=true		%propios de PHP
+	}
+\setmintedinline[php]{startinline=true}
+
+\newminted{html}{
+	linenos=true,
+	style=tango    %rainbow_dash,%igor,%perldoc,%paraiso-light, %,default
+}
+
+\newminted{javascript}{
+	linenos=true,
+	style=tango   % default %manni  %xcode   %autumn    %rainbow_dash,%igor,%perldoc,% paraiso-light, %,default
+}
+
+\newminted{java}{
+	linenos=true,
+	style=tango   % default %manni  %xcode   %autumn    %rainbow_dash,%igor,%perldoc,% paraiso-light, %,default
+}
+\renewcommand\listingscaption{Bloque de código}
+\renewcommand\listoflistingscaption{Listados de código}
+
+ %---------------------------------------------------------------------
+%:  Código para listings (usado en SQL)
+%https://www.overleaf.com/learn/latex/Code_listing
+%---------------------------------------------------------------------
+\usepackage{listingsutf8}
+%\usepackage{listings}
+ \definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\renewcommand{\lstlistingname}{Listado}% traducido
+\renewcommand{\lstlistlistingname}{Listados}% traducido
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{magenta},
+    keywordstyle=\color{ codegreen},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,    
+    %breakatwhitespace= false,             
+    captionpos=null,  
+    belowcaptionskip=0pt,
+    %belowcaptionskip= 1pt,    
+   % aboveskip=5pt,           
+   % belowskip=5pt,           
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=10pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,      
+    xleftmargin=10pt,    
+    xrightmargin=10pt,            
+    tabsize=4,
+   frame=single,%line,%lines,%single, %recadro con borde
+   framexbottommargin=0pt,
+    rulecolor=\color{black!30},
+    title=\lstname, % show the filename of files included with \lstinputlisting; also try caption instead of title
+    escapeinside={\%*}{*)},
+   % breakatwhitespace=true,
+    %framextopmargin=2pt,
+   % framexbottommargin=2pt,
+    extendedchars=false,% lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+    inputencoding=utf8
+}
+\lstset{style=mystyle}
+
+%---------------------------------------------------------------------
+%: Caption tuneado
+%---------------------------------------------------------------------
+\usepackage[format=plain,
+            font={sf, footnotesize},
+            justification=centering,
+            skip=0pt,
+            aboveskip=8pt,
+            belowskip=0pt
+            ]{caption}
+%\usepackage{subcaption} % para usar \begin{subfigure}
+
+%---------------------------------------------------------------------
+%: Táboas
+%---------------------------------------------------------------------
+\setlength{\tabcolsep}{0.8em} % for the horizontal padding
+\renewcommand{\arraystretch}{1.3}% for the vertical padding
+
+ 
+%---------------------------------------------------------------------
+%:  Subsubsection sen numerito no índice
+%---------------------------------------------------------------------
+\renewcommand{\thesubsubsection}{}
+\titleformat{\subsubsection}
+	{\normalfont\scshape}{\thesubsubsection}{1em}{} 
+	
+%---------------------------------------------------------------------
+%:  Parágrafos sen numerito no índice
+%---------------------------------------------------------------------
+%\renewcommand{\theparagraph}{}
+%\renewcommand{\thesubparagraph}{}
+%\titleformat{\paragraph}
+%  {\normalfont\scshape}{\theparagraph}{2em}{}
+% 
+ 
+%Trae o contido
+%---------------------------------------------------------------------
+%\input{rollazo}
